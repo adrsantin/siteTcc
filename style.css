@@ -1,0 +1,12 @@
+BODY {
+    background: #ffffff;
+    color: #000000; 
+    margin-left:  7%;
+    margin-right: 7%;
+    font-family:Arial;
+}
+
+
+.nomes {
+    text-align: right;
+}
