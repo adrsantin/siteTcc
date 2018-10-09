@@ -1,0 +1,17 @@
+BODY {
+    background: #ffffff;
+    color: #000000; 
+    margin-left:  7%;
+    margin-right: 7%;
+    font-family:Arial;
+}
+
+.top {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+
+.nomes {
+    text-align: right;
+}

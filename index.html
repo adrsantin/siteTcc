@@ -1,76 +1,114 @@
 <!DOCTYPE html>
 <head>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+   <link rel="stylesheet" href="css/kube.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/custom.min.css" />
+    <link rel="shortcut icon" href="img/favicon.png" />
+	<link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC:700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+	<style>
+		.intro h1:before {
+			/* Edit this with your name or anything else */
+			content: 'DELPO';
+		}
+	</style>
   <title>Refatoração do projeto Delpo</title>
 </head>
 
 <body>
+  <div class="main-nav">
+    <div class="container">
+      <header class="group top-nav">
+	<div class="navigation-toggle" data-tools="navigation-toggle" data-target="#navbar-1">
+	  <span class="logo">DRACO</span>
+	</div>
+	<nav id="navbar-1" class="navbar item-nav">
+	  <ul>
+	    <li class="active"><a href="#proposta">Proposta</a></li>
+	    <li><a href="#crono">Cronograma</a></li>
+	    <li><a href="#desen">Desenvolvimento</a></li>
+	    <li><a href="#links">Links</a></li>
+	  </ul>
+	</nav>
+      </header>
+    </div>
+  </div>
   <center>
-    <h2>
-      MAC0499 - Trabalho de Conclusão de Curso
-    </h2>   
+    <div class="intro section">
+      <div class="container">
+	<h2>
+	  MAC0499 - Trabalho de Conclusão de Curso
+	</h2>   
 
-    <h1 class="titulo">
-      Refatoração do Projeto Delpo
-    </h1>
-
-    <h4 class="nomes">
-      Professor Supervisor: Marco Dimas Gubitoso<br>
-      <br>
-      Adriano Tetsuaki Ogawa Santin, 8944387<br>
-      Luiz Fernando Antonelli Galati, 7557223<br>
-      Mauricio Luiz Abreu Cardoso, 6796479<br>
-    </h4>
+	<h1 class="titulo">
+	  Refatoração do Projeto Delpo
+	</h1>
+	<h4 class="nomes">
+	  Professor Supervisor: Marco Dimas Gubitoso<br>
+	  <br>
+	  Adriano Tetsuaki Ogawa Santin, 8944387<br>
+	  Luiz Fernando Antonelli Galati, 7557223<br>
+	  Mauricio Luiz Abreu Cardoso, 6796479<br>
+	</h4>
+      </div>
+    </div>
   </center>
   <hr>
-  <h2 class="secao">
-    Proposta
-  </h2>
-    <p>
+  <div class="container">
+    <div id="propsta">
+      <h2 class="secao">
+	Proposta
+      </h2>
+      <p>
         O projeto Delpo, Dicionário Etimológico da Língua Portuguesa, tem como propósito datar ocorrências e mudanças de cada palavra no decorrer do tempo através das suas similariedades, ou seja, estudar sua etimologia. O projeto utiliza um "moedor" de palavras, que se encontra no <a href="http://www.nehilp.org/~nehilp/programas/moedor_aberto.php">site do NEHiLP</a>, Núcleo de Apoio à Pesquisa em Etimologia e História da Língua Portuguesa.</p>
-    <p>
+      <p>
         O moedor recebe obras arcaicas inseridas pelos pesquisadores da FFLCH e o quebra em palavras de várias maneiras diferentes, comparando com palavras já presentes no banco de dados a fim de se verificar sua semelhança. Essas "novas palavras" que estão contidas na obra serão inseridas no banco, juntamente com a data da obra, traçando indiretamente a evolução da palavra com o tempo.</p>
-    <p>
+      <p>
         Atualmente, esta plataforma está programada em php, e o módulo do moedor em perl, e está hospedada em uma máquina desatualizada, em um Ubuntu 12.04. Está sendo feita uma mudança para uma nova máquina no IME, com Ubuntu 16.10 e, com essa atualização, nosso objetivo é refatorar o moedor na linguagem Ruby e intégra-lo na plataforma utilizando Rails. </p>
-    <p>
+      <p>
         Ao fazer a refatoração para uma linguagem mais atual, limpamos muito o código legado que foi criado e modificado por várias pessoas durante muito tempo e abrimos possibilidade para implementação de novas funções para auxiliar na pesquisa etimológica.</p>
-
-    <hr>
-    
-    <h2 class="secao">
+  </div></div>
+  <hr>
+  <div class="container">
+    <div id="crono">
+      <h2 class="secao">
         Cronograma
-    </h2>
-    <p>
-    O professor Marco Dimas Gubitoso já fez uma cópia da plataforma para uma máquina nova no IME e está no processo de nos conceder acesso a ela.</p>
-    <ol>
+      </h2>
+      <p>
+	O professor Marco Dimas Gubitoso já fez uma cópia da plataforma para uma máquina nova no IME e está no processo de nos conceder acesso a ela.</p>
+      <ol>
         <li>Arrumar o código e links quebrados com a mudança de máquina para tudo funcionar na máquina nova sem atrapalhar as pessoas trabalhando com a plataforma atualmente.</li>
         <li>Estudar o código legado em Perl do moedor de palavras e refazer, do zero, o moedor na linguagem Ruby.</li>
         <li>Fazer a integração com a plataforma do NEHiLP em Rails.</li>
         <li>Copiar o banco de dados para a máquina nova e fazer a integração para o plataforma utilizando o Rails.</li>
-    </ol>
-    <p>O trabalho será feito utilizando a metodologia SCRUM. A cada duas semanas, haverá uma reunião entre os três alunos e o professor supervisor para checar o andamento, analisar metas e (re)definir/atualizar os objetivos para cada Sprint</p>
-
-    <hr>
-
-    <h2 class="secao">
-      Desenvolvimento do trabalho
-    </h2>
-    <h3>O que foi feito até agora</h3>
-  <p>O trabalho foi iniciado com a atualização do banco de dados. O banco de dados no Delpo, que foi feito em MySQL, foi estudado e começamos por criar novas tabelas equivalentes no Postgresql e ligando com o ActiveRecord do Rails. A primeira tabela adaptada foi a de usuários, e criada com um sistema de autenticação da Gema Devise, para segurança de dados. Essa Gema criptografa as senhas ao guardar no banco e tem um sistema que requer autenticação dos usuários para acesso às páginas. Também foi feito um sistema para que o somente usuários de nível elevado no sistema consigam adicionar novos usuários.</p>
-  <p>Em seguida, foram criadas as tabelas por ordem de dependência. Primeiramente as tabelas que não dependem de outras como Cidades, e depois as que depoendiam de tabelas já criadas, como Editoras, que pertencem a uma Cidade.</p>
-  <p>Na criação de entradas na tabela no Rails, foram encontrados alguns problemas com entradas que possuiam chaves estrangeiras, que exigiam os ids específicos das chaves estrangeiras. Esse problema foi resolvido com um dicionário de dados que puxa do banco os ids no processo da criação das entradas.</p>
-  <p>Com as tabelas básicas e necessárias para o sistema criadas, foi iniciada adaptação do moedor de textos em linguagem Ruby.</p> 
-  <h3>O que ainda será feito</h3>
-  <p>No sistema anterior, existem muitas tabelas. Ainda existem tabelas a ser adaptadas para o novo sistema. Isso esta sendo feito com a adaptação do moedor.
-  <p>O moedor ainda deve ser finalizado. E quando ele estiver finalizado, juntamente com as tabelas, o sistema estará praticamente finalizado. Então será feita a adaptação da interface visual, emulando o visual do sistema original.</p>
-    
-    
-    <hr>
-    
-    <h2 class="secao">
-      Links
-    </h2>
-    <p>Nada ainda</p>
-    <hr>
-        
+      </ol>
+      <p>O trabalho será feito utilizando a metodologia SCRUM. A cada duas semanas, haverá uma reunião entre os três alunos e o professor supervisor para checar o andamento, analisar metas e (re)definir/atualizar os objetivos para cada Sprint</p>
+  </div></div>
+  <hr>
+  <div class="container">
+    <div id="desen">
+      <h2 class="secao">
+	Desenvolvimento do trabalho
+      </h2>
+      <h3>O que foi feito até agora</h3>
+      <p>O trabalho foi iniciado com a atualização do banco de dados. O banco de dados no Delpo, que foi feito em MySQL, foi estudado e começamos por criar novas tabelas equivalentes no Postgresql e ligando com o ActiveRecord do Rails. A primeira tabela adaptada foi a de usuários, e criada com um sistema de autenticação da Gema Devise, para segurança de dados. Essa Gema criptografa as senhas ao guardar no banco e tem um sistema que requer autenticação dos usuários para acesso às páginas. Também foi feito um sistema para que o somente usuários de nível elevado no sistema consigam adicionar novos usuários.</p>
+      <p>Em seguida, foram criadas as tabelas por ordem de dependência. Primeiramente as tabelas que não dependem de outras como Cidades, e depois as que depoendiam de tabelas já criadas, como Editoras, que pertencem a uma Cidade.</p>
+      <p>Na criação de entradas na tabela no Rails, foram encontrados alguns problemas com entradas que possuiam chaves estrangeiras, que exigiam os ids específicos das chaves estrangeiras. Esse problema foi resolvido com um dicionário de dados que puxa do banco os ids no processo da criação das entradas.</p>
+      <p>Com as tabelas básicas e necessárias para o sistema criadas, foi iniciada adaptação do moedor de textos em linguagem Ruby.</p> 
+      <h3>O que ainda será feito</h3>
+      <p>No sistema anterior, existem muitas tabelas. Ainda existem tabelas a ser adaptadas para o novo sistema. Isso esta sendo feito com a adaptação do moedor.
+      <p>O moedor ainda deve ser finalizado. E quando ele estiver finalizado, juntamente com as tabelas, o sistema estará praticamente finalizado. Então será feita a adaptação da interface visual, emulando o visual do sistema original.</p>
+  </div></div>
+  
+  <hr>
+  <div class="container">
+    <div id="links">
+      <h2 class="secao">
+	Links
+      </h2>
+      <p>Nada ainda</p>
+  </div></div>
+  <hr>
+  
 </body>
