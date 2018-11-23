@@ -21,14 +21,15 @@
     <div class="container">
       <header class="group top-nav">
 	<div class="navigation-toggle" data-tools="navigation-toggle" data-target="#navbar-1">
-	  <span class="logo">DRACO</span>
+	  <span class="logo">DELPO</span>
 	</div>
 	<nav id="navbar-1" class="navbar item-nav">
 	  <ul>
-	    <li class="active"><a href="#proposta">Proposta</a></li>
+	    <li class="active"><a href="resumo">Resumo</a></li>
+	    <li><a href="#proposta">Proposta</a></li>
+	    <li><a href="#links">Links</a></li>
 	    <li><a href="#crono">Cronograma</a></li>
 	    <li><a href="#desen">Desenvolvimento</a></li>
-	    <li><a href="#links">Links</a></li>
 	  </ul>
 	</nav>
       </header>
@@ -55,6 +56,16 @@
     </div>
   </center>
   <hr>
+    <div class="container">
+    <div id="resumo">
+      <h2 class="secao">
+	Resumo
+      </h2>
+      <p>O projeto do Dicionário Etimológico da Língua Portuguesa (DELPo) nasceu da importância de os pesquisadores que se dedicam ao estudo desse idioma contarem com informações a respeito da origem e do significado dos verbetes da língua. O dicionário já está disponível online, mas possui problemas de funcionamento que podem ser atribuídos a falhas no desenvolvimento dos softwares envolvidos no projeto.</p>
+<p>Neste trabalho, propusemo-nos a refazer, desde o princípio, todo o DELPo (que inclui um complexo banco de dados e vários programas auxiliares), de modo a produzir uma plataforma cuja interação com os usuários seja intuitiva e que, além disso, seja estável e relativamente fácil de ser modificada ou aperfeiçoada.</p>
+    </div></div>
+    
+  <hr>
   <div class="container">
     <div id="propsta">
       <h2 class="secao">
@@ -69,6 +80,21 @@
       <p>
         Ao fazer a refatoração para uma linguagem mais atual, limpamos muito o código legado que foi criado e modificado por várias pessoas durante muito tempo e abrimos possibilidade para implementação de novas funções para auxiliar na pesquisa etimológica.</p>
   </div></div>
+  
+  <hr>
+  <div class="container">
+    <div id="links">
+      <h2 class="secao">
+	Links
+      </h2>
+      <h3>
+      <a href="https://linux.ime.usp.br/~mauriciocardoso/mac0499/pdfs/moncardosogalatisantin.pdf">Monografia</a></h3><br>
+      <h3>Apreciação pessoal e crítica</h3>
+      <a href="https://linux.ime.usp.br/~mauriciocardoso/mac0499/pdfs/apreciacaoadriano.pdf">Adriano Tetsuaki Ogawa Santin</a><br>
+      <a href="https://linux.ime.usp.br/~mauriciocardoso/mac0499/pdfs/apreciacaoluiz.pdf">Luiz Fernando Antonelli Galati</a><br>
+      <a href="https://linux.ime.usp.br/~mauriciocardoso/mac0499/pdfs/apreciacaomauricio.pdf">Mauricio Luiz Abreu Cardoso</a><br>
+  </div></div>
+  
   <hr>
   <div class="container">
     <div id="crono">
@@ -91,24 +117,14 @@
       <h2 class="secao">
 	Desenvolvimento do trabalho
       </h2>
-      <h3>O que foi feito até agora</h3>
       <p>O trabalho foi iniciado com a atualização do banco de dados. O banco de dados no Delpo, que foi feito em MySQL, foi estudado e começamos por criar novas tabelas equivalentes no Postgresql e ligando com o ActiveRecord do Rails. A primeira tabela adaptada foi a de usuários, e criada com um sistema de autenticação da Gema Devise, para segurança de dados. Essa Gema criptografa as senhas ao guardar no banco e tem um sistema que requer autenticação dos usuários para acesso às páginas. Também foi feito um sistema para que o somente usuários de nível elevado no sistema consigam adicionar novos usuários.</p>
       <p>Em seguida, foram criadas as tabelas por ordem de dependência. Primeiramente as tabelas que não dependem de outras como Cidades, e depois as que depoendiam de tabelas já criadas, como Editoras, que pertencem a uma Cidade.</p>
       <p>Na criação de entradas na tabela no Rails, foram encontrados alguns problemas com entradas que possuiam chaves estrangeiras, que exigiam os ids específicos das chaves estrangeiras. Esse problema foi resolvido com um dicionário de dados que puxa do banco os ids no processo da criação das entradas.</p>
       <p>Com as tabelas básicas e necessárias para o sistema criadas, foi iniciada adaptação do moedor de textos em linguagem Ruby.</p> 
-      <h3>O que ainda será feito</h3>
-      <p>No sistema anterior, existem muitas tabelas. Ainda existem tabelas a ser adaptadas para o novo sistema. Isso esta sendo feito com a adaptação do moedor.
-      <p>O moedor ainda deve ser finalizado. E quando ele estiver finalizado, juntamente com as tabelas, o sistema estará praticamente finalizado. Então será feita a adaptação da interface visual, emulando o visual do sistema original.</p>
+      <p>O moedor foi então completamente adaptado da sua linguagem original em Perl, para Ruby, integrando-se ao framework Rails com facilidade, e mantendo uma coerência, já que agora o sistema inteiro do Delpo é composto de uma única linguagem.</p>
+      <p>Juntamente com a adaptação do moedor, todas as outras tabelas do sistema atual foram criadas no novo banco de dados.</p>
   </div></div>
   
-  <hr>
-  <div class="container">
-    <div id="links">
-      <h2 class="secao">
-	Links
-      </h2>
-      <p>Nada ainda</p>
-  </div></div>
   <hr>
   
 </body>
